@@ -10,14 +10,22 @@ import {
 } from "@material-ui/core";
 import { Close, KeyboardBackspaceOutlined } from "@material-ui/icons";
 import React, { Fragment } from "react";
+import { useHistory } from "react-router";
 import styles from "./CreatePatient.module.scss";
-const CreatePatient = () => {
+export const CreatePatient = () => {
+  const history = useHistory();
   return (
     <Fragment>
       <Container maxWidth="xl">
         <Box mb={3}>
           <Tooltip title="Back">
-            <Button startIcon={<KeyboardBackspaceOutlined />}> Back</Button>
+            <Button
+              startIcon={<KeyboardBackspaceOutlined />}
+              onClick={() => history.goBack()}
+            >
+              {" "}
+              Back
+            </Button>
           </Tooltip>
         </Box>
 
