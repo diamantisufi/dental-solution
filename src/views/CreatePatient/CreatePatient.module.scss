@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  border-bottom: 1px solid #e4e4e4;
+  height: 5em;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.textfield {
+  min-height: 80px;
+}
+
+.grid {
+  margin-right: 1rem !important;
+}
