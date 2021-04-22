@@ -12,8 +12,15 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { Route, Switch } from "react-router";
+import { Route, Switch, useHistory } from "react-router";
 import { Dashboard } from "../../views/Dashboard/Dashboard";
+import Patients from "../../views/Patients/Patients";
+import {
+  CalendarTodayOutlined,
+  DashboardOutlined,
+  PeopleOutline,
+} from "@material-ui/icons";
+import CreatePatient from "../../views/CreatePatient/CreatePatient";
 
 const drawerWidth = 240;
 
@@ -41,8 +48,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const sidebarItems = [
+  {
+    id: "dashboard",
+    route: "",
+    label: "Dashboard",
+    icon: <DashboardOutlined />,
+  },
+  {
+    id: "patients",
+    route: "patients",
+    label: "Patients",
+
+    icon: <PeopleOutline />,
+  },
+  {
+    id: "calendar",
+    route: "calendar",
+    label: "Calendar",
+
+    icon: <CalendarTodayOutlined />,
+  },
+
+  {
+    id: "appointments",
+    route: "appointments",
+    label: "Appointments",
+    icon: <DashboardOutlined />,
+  },
+];
+
 export default function Sidebar() {
   const classes = useStyles();
+  const history = useHistory();
+  const onSidebarItemChange = (e, route) => {
+    e.preventDefault();
+    history.push(`/${route}`);
+  };
 
   return (
     <div className={classes.root}>
@@ -65,16 +107,16 @@ export default function Sidebar() {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {["Dashboard", "Patients", "Calendar", "Appointments"].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          {sidebarItems.map(({ id, route, label, icon }) => (
+            <ListItem
+              button
+              key={id}
+              onClick={(e) => onSidebarItemChange(e, route)}
+            >
+              <ListItemIcon>{icon}</ListItemIcon>
+              <ListItemText primary={label} />
+            </ListItem>
+          ))}
         </List>
         <Divider />
         <List>
@@ -93,6 +135,14 @@ export default function Sidebar() {
         <Switch>
           <Route exact path="/">
             <Dashboard />
+          </Route>
+
+          <Route exact path="/patients">
+            <Patients />
+          </Route>
+
+          <Route path="/patients/create">
+            <CreatePatient />
           </Route>
         </Switch>
       </main>
