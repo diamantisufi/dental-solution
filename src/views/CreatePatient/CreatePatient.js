@@ -45,7 +45,7 @@ export const CreatePatient = () => {
             width="100%"
             gridRowGap="1"
           >
-            <Grid item xs="6" className={styles.grid}>
+            <Grid item xs={6} className={styles.grid}>
               <Box className={styles.textfield}>
                 <TextField
                   id="firstname"
@@ -85,7 +85,7 @@ export const CreatePatient = () => {
                 ></TextField>
               </Box>
             </Grid>
-            <Grid item xs="6">
+            <Grid item xs={6}>
               <Box className={styles.textfield}>
                 <TextField
                   id="lastname"
@@ -106,7 +106,7 @@ export const CreatePatient = () => {
               </Box>
               <Box className={styles.textfield}>
                 <TextField
-                  id="date_of_birth"
+                  id="date_of_birth1"
                   name="date_of_birth"
                   label="Date of Birth"
                   variant="outlined"

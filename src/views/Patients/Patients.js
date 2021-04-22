@@ -18,7 +18,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Box, Button, Divider } from "@material-ui/core";
-import { Add, PlusOneOutlined } from "@material-ui/icons";
+import { Add } from "@material-ui/icons";
 import { useHistory } from "react-router";
 
 function createData(name, calories, fat, carbs, protein) {
@@ -72,7 +72,13 @@ const headCells = [
     id: "name",
     numeric: false,
     disablePadding: true,
-    label: "Dessert (100g serving)",
+    label: "First Name",
+  },
+  {
+    id: "name",
+    numeric: false,
+    disablePadding: true,
+    label: "Last Name",
   },
   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
@@ -212,7 +218,7 @@ const EnhancedTableToolbar = (props) => {
           </Tooltip>
         ) : (
           <Tooltip title="Filter list">
-            <Box width={200}>
+            <Box width={175}>
               <Button
                 color="primary"
                 variant="contained"
