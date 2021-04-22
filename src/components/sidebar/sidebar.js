@@ -27,7 +27,7 @@ import {
 } from "@material-ui/icons";
 import styles from "./Sidebar.module.scss";
 import { Box } from "@material-ui/core";
-const drawerWidth = 240;
+const drawerWidth = 265;
 
 const useStyles = makeStyles((theme) => ({
   root: {
