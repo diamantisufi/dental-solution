@@ -2,18 +2,22 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Notification from "./components/Notification/Notification";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./common/theme";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Sidebar />
-        </Route>
-        <Route path="/" component={Sidebar} />
-      </Switch>
-      <Notification />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Sidebar />
+          </Route>
+          <Route path="/" component={Sidebar} />
+        </Switch>
+        <Notification />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
