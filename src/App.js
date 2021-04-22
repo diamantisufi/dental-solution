@@ -1,13 +1,19 @@
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Notification from "./components/Notification/Notification";
 
 function App() {
   return (
-    <Router>
-      <Sidebar />
-      <Route path="/"></Route>
-    </Router>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Sidebar />
+        </Route>
+        <Route path="/" component={Sidebar} />
+      </Switch>
+      <Notification />
+    </BrowserRouter>
   );
 }
 

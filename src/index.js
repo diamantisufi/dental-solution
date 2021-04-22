@@ -1,14 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { StateProvider } from "./store";
+import { CircularProgress } from "@material-ui/core";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <StateProvider>
+    <Suspense
+      fallback={
+        <CircularProgress
+          color="primary"
+          style={{ position: "absolute", top: "50%", left: "50%" }}
+        />
+      }
+    >
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Suspense>
+  </StateProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -17,8 +17,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Box, Button } from "@material-ui/core";
-import { Add, PlusOneOutlined } from "@material-ui/icons";
+import { Box, Button, Divider } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import { useHistory } from "react-router";
 
 function createData(name, calories, fat, carbs, protein) {
@@ -72,7 +72,13 @@ const headCells = [
     id: "name",
     numeric: false,
     disablePadding: true,
-    label: "Dessert (100g serving)",
+    label: "First Name",
+  },
+  {
+    id: "name",
+    numeric: false,
+    disablePadding: true,
+    label: "Last Name",
   },
   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
@@ -178,52 +184,55 @@ const EnhancedTableToolbar = (props) => {
   };
 
   return (
-    <Toolbar
-      className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
-      {numSelected > 0 ? (
-        <Typography
-          className={classes.title}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          className={classes.title}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          Patients
-        </Typography>
-      )}
+    <Fragment>
+      <Toolbar
+        className={clsx(classes.root, {
+          [classes.highlight]: numSelected > 0,
+        })}
+      >
+        {numSelected > 0 ? (
+          <Typography
+            className={classes.title}
+            color="inherit"
+            variant="subtitle1"
+            component="div"
+          >
+            {numSelected} selected
+          </Typography>
+        ) : (
+          <Typography
+            className={classes.title}
+            variant="h6"
+            id="tableTitle"
+            component="div"
+          >
+            Patients
+          </Typography>
+        )}
 
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <Box width={200}>
-            <Button
-              color="primary"
-              variant="contained"
-              startIcon={<Add />}
-              onClick={(e) => handleNewPatient(e)}
-            >
-              New Patient
-            </Button>
-          </Box>
-        </Tooltip>
-      )}
-    </Toolbar>
+        {numSelected > 0 ? (
+          <Tooltip title="Delete">
+            <IconButton aria-label="delete">
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+        ) : (
+          <Tooltip title="Filter list">
+            <Box width={175}>
+              <Button
+                color="primary"
+                variant="contained"
+                startIcon={<Add />}
+                onClick={(e) => handleNewPatient(e)}
+              >
+                New Patient
+              </Button>
+            </Box>
+          </Tooltip>
+        )}
+      </Toolbar>
+      <Divider light />
+    </Fragment>
   );
 };
 
@@ -256,7 +265,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Patients() {
+export function Patients() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");

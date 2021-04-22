@@ -2,7 +2,12 @@
   display: flex;
   gap: 2rem;
   margin-top: 1rem;
+  min-width: 50rem;
   .card {
-    max-width: 345px;
+    min-width: 20rem;
+    .cardIcon {
+      font-size: 50px;
+      color: #4285f4;
+    }
   }
 }
