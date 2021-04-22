@@ -25,7 +25,8 @@ import {
   DashboardOutlined,
   PeopleOutline,
 } from "@material-ui/icons";
-
+import styles from "./Sidebar.module.scss";
+import { Box } from "@material-ui/core";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -72,7 +73,6 @@ const sidebarItems = [
     id: "patients",
     route: "patients",
     label: "Patients",
-
     icon: <PeopleOutline />,
   },
   {
@@ -104,13 +104,25 @@ function Sidebar(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <Box
+        className={classes.toolbar}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <h2>DENTAL SOLUTION</h2>
+      </Box>
       <Divider />
       <List>
         {sidebarItems.map(({ id, route, label, icon }) => (
-          <ListItem button key={id} onClick={() => history.push(`/${route}`)}>
+          <ListItem
+            button
+            key={id}
+            onClick={() => history.push(`/${route}`)}
+            className={styles.listItem}
+          >
             <ListItemIcon>{icon}</ListItemIcon>
-            <ListItemText primary={label} />
+            <ListItemText primary={label} className={styles.listItemText} />
           </ListItem>
         ))}
       </List>
