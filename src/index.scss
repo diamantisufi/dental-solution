@@ -1,6 +1,9 @@
+/* global css */
+@import "./components/fonts";
+
 body {
   margin: 0;
-  font-family: "Poppins-Medium", sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

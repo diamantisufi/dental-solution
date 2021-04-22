@@ -110,7 +110,7 @@ function Sidebar(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <h2>DENTAL SOLUTION</h2>
+        <h2 style={{ fontFamily: "Poppins" }}>DENTAL SOLUTION</h2>
       </Box>
       <Divider />
       <List>

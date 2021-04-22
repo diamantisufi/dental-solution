@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Notification from "./components/Notification/Notification";
