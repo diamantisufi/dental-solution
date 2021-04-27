@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   content: {
+    height: "100vh",
     flexGrow: 1,
     padding: theme.spacing(3),
   },

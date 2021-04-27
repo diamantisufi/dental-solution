@@ -17,7 +17,7 @@ import styles from "./CreatePatient.module.scss";
 export const CreatePatient = () => {
   const history = useHistory();
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" className={styles.container}>
       <Box mb={3}>
         <Tooltip title="Back">
           <Button
@@ -33,7 +33,7 @@ export const CreatePatient = () => {
       <Paper>
         <Box className={styles.header}>
           <Typography variant="h6" color="textSecondary">
-            Create new Patient
+            Register a new Patient
           </Typography>
         </Box>
         <Grid container>
