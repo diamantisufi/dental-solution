@@ -1,7 +1,7 @@
 import React from "react";
 
 const Landing = () => {
-  return <div>here</div>;
+  return <div>Landing page</div>;
 };
 
 export default Landing;

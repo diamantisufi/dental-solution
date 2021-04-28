@@ -75,19 +75,18 @@ const headCells = [
     label: "First Name",
   },
   {
-    id: "name",
+    id: "lastName",
     numeric: false,
     disablePadding: true,
     label: "Last Name",
   },
-  { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
-  { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
-  { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
+  { id: "telephone", numeric: true, disablePadding: false, label: "Telephone" },
+  { id: "email", numeric: true, disablePadding: false, label: "Email" },
   {
-    id: "protein",
+    id: "appointments",
     numeric: true,
     disablePadding: false,
-    label: "Protein (g)",
+    label: "Appointments",
   },
 ];
 
