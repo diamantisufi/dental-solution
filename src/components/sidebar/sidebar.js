@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   content: {
+    height: "100vh",
     flexGrow: 1,
     padding: theme.spacing(3),
   },
@@ -110,7 +111,7 @@ function Sidebar(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <h2>DENTAL SOLUTION</h2>
+        <h2 style={{ fontFamily: "Poppins" }}>DENTAL SOLUTION</h2>
       </Box>
       <Divider />
       <List>

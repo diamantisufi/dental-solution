@@ -4,5 +4,11 @@
 }
 
 .listItem {
-  padding: 1em 2em;
+  padding: 1em 2em !important;
+  text-transform: uppercase;
+}
+
+.listItemText {
+  font-family: "Poppins-Light";
+  font-weight: normal !important;
 }
